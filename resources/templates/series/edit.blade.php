@@ -7,4 +7,6 @@
         @include('series.form')
 
     {!! Form::close() !!}
+
+    {!! delete_form(['series.destroy', $serie->slug]) !!}
 @stop

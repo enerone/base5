@@ -2,6 +2,7 @@
 
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\CreateSerieRequest;
 use App\Serie;
 use Illuminate\Http\Request;
 
@@ -12,47 +13,72 @@ class SeriesController extends Controller {
      */
     private $serie;
 
+
+    /**
+     * @param Serie $serie
+     */
     public function __construct(Serie $serie){
 
         $this->serie = $serie;
     }
 
-	public function index(){
+    /**
+     * @return \Illuminate\View\View
+     */
+    public function index(){
         $series = $this->serie->get();
 
         return view('series.index', compact('series'));
     }
 
+    /**
+     * @param Serie $serie
+     * @return \Illuminate\View\View
+     */
     public function show(Serie $serie){
-
        return view('series.show', compact('serie'));
     }
 
+    /**
+     * @return \Illuminate\View\View
+     */
     public function create(){
         return view('series.create');
     }
 
-    public function store(Request $request, Serie $serie){
+    /**
+     * @param Request $request
+     * @param Serie $serie
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function store(CreateSerieRequest $request, Serie $serie){
 
-       $serie->create($request->all());
+
+        $serie->create($request->all());
         return redirect()->route('series.index');
     }
 
+    /**
+     * @param Serie $serie
+     * @return \Illuminate\View\View
+     */
     public function edit(Serie $serie){
-
         return view('series.edit', compact('serie'));
     }
 
+    /**
+     * @param Serie $serie
+     * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     */
     public function update(Serie $serie, Request $request)
     {
-
-
         $serie->fill($request->input())->save();
+        return redirect('series');
+    }
 
-
-
-
-
+    public function destroy(Serie $serie){
+        $serie->delete();
 
         return redirect('series');
     }
