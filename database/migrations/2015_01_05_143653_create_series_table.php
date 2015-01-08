@@ -17,6 +17,7 @@ class CreateSeriesTable extends Migration {
 			$table->increments('id');
 			$table->string('titulo');
 			$table->string('slug')->unique();
+			$table->string('ultimo')->unique();
 
 			$table->string('temporadas')->nullable();
 			$table->text('descripcion')->nullable();

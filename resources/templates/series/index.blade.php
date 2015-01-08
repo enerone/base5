@@ -17,11 +17,12 @@
                     <td>{{ $serie->titulo }}</td>
                     <td>{{ $serie->temporadas }}</td>
                     <td>
-                        {!! Form::open() !!}
+                        {!! Form::model($serie, ['route' => '{{URL::route('series.edit',  $serie->slug)/ultimo'}},  $serie->slug, 'method'=>'GET']) !!}
                             {!! Form::text('ultimo') !!}
+                            {!! Form::submit('ok!', ['class' =>'btn btn-primary']) !!}
                         {!! Form::close() !!}
                     </td>
-                    <td><span><a href="{{ URL::route('series.edit',  $serie->slug) }}" class="btn btn-success">Edit</a></span> <span>|</span> <span> {!! delete_form(['series.destroy', $serie->slug]) !!}</span></td>
+                    <td><span><a href="{{ URL::route('series.edit',  $serie->slug) }}" style="float:left;" class="btn btn-success">Edit</a></span> <span style="float:left;">|</span> <span> {!! delete_form(['series.destroy', $serie->slug]) !!}</span></td>
                 </tr>
                @endforeach
 

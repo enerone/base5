@@ -78,6 +78,12 @@ class SeriesController extends Controller {
         return redirect('series');
     }
 
+    public function ultimo(Serie $serie, Request $request)
+    {
+        $serie->fill($request->input())->save();
+        return redirect('series');
+    }
+
     public function destroy(Serie $serie){
         $serie->delete();
 

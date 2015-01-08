@@ -5,6 +5,6 @@ use Illuminate\Database\Eloquent\Model as Eloquent;
 class Serie  extends Eloquent{
 
         protected $fillable=[
-          'titulo', 'temporadas','slug', 'descripcion'
+          'titulo', 'temporadas','slug', 'descripcion', 'ultimo'
         ];
 }
