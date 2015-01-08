@@ -5,6 +5,8 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\CreateSerieRequest;
 use App\Serie;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\URL;
+
 
 class SeriesController extends Controller {
 
@@ -52,7 +54,6 @@ class SeriesController extends Controller {
      * @return \Illuminate\Http\RedirectResponse
      */
     public function store(CreateSerieRequest $request, Serie $serie){
-
 
         $serie->create($request->all());
         return redirect()->route('series.index');

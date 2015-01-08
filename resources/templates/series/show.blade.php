@@ -7,7 +7,7 @@
 
     @if($serie->temporadas)
         <article class="temporadas">
-            {{ $serie->temporadas }}
+            <b>Temporadas:</b> {{ $serie->temporadas }}
         </article>
     @endif
     @if($serie->descripcion)
