@@ -17,8 +17,8 @@
                     <td>{{ $serie->titulo }}</td>
                     <td>{{ $serie->temporadas }}</td>
                     <td>
-                        {!! Form::model($serie, ['route' => '{{URL::route('series.edit',  $serie->slug)/ultimo'}},  $serie->slug, 'method'=>'GET']) !!}
-                            {!! Form::text('ultimo') !!}
+                        {!! Form::model($serie, ['url' => 'series/'.$serie->slug.'/ultimo', 'slug' => $serie->slug, 'method'=>'PATCH']) !!}
+                            {!! Form::text('ultimo', null) !!}
                             {!! Form::submit('ok!', ['class' =>'btn btn-primary']) !!}
                         {!! Form::close() !!}
                     </td>

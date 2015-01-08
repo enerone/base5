@@ -78,9 +78,11 @@ class SeriesController extends Controller {
         return redirect('series');
     }
 
-    public function ultimo(Serie $serie, Request $request)
+    public function ultimo( Request $request, Serie $serie,$slug)
     {
-        $serie->fill($request->input())->save();
+            $serie1 = $this->serie->whereSlug($slug)->first();
+         $serie1->fill(['ultimo'=>$request->get('ultimo')])->save();
+        
         return redirect('series');
     }
 
