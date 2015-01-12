@@ -118,6 +118,8 @@ return [
 		'App\Providers\EventServiceProvider',
 		'App\Providers\RouteServiceProvider',
 
+
+
 		/*
 		 * Laravel Framework Service Providers...
 		 */

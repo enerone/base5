@@ -17,6 +17,7 @@ return [
 
 	'driver' => 'eloquent',
 
+
 	/*
 	|--------------------------------------------------------------------------
 	| Authentication Model
@@ -59,7 +60,7 @@ return [
 	*/
 
 	'password' => [
-		'email' => 'emails.auth.password',
+		'email' => 'emails.Auth.password',
 		'table' => 'password_resets',
 		'expire' => 60,
 	],
